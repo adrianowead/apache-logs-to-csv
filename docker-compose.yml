@@ -1,0 +1,17 @@
+version: '3.7'
+services:
+  php-app:
+    build:
+      context: .
+      dockerfile: ./docker/Dockerfile
+    ports:
+      - target: 80
+        published: 80
+        protocol: tcp
+        mode: host
+    networks:
+      - poc_analytics
+    volumes:
+      - './:/var/www/html'
+networks:
+  poc_analytics: null
