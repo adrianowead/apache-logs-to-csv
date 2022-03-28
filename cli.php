@@ -427,12 +427,14 @@ function getClientLocation(string $ip): ClientLocation
     {
         $reader = new Reader("GeoLite2-City.mmdb");
 
-        $re = $reader->city($ip);
+        try{
+            $re = $reader->city($ip);
 
-        $location->city = $re->city->name;
-        $location->state = $re->mostSpecificSubdivision->name;
-        $location->country = $re->country->name;
-        $location->country_code = $re->country->isoCode;
+            $location->city = $re->city->name;
+            $location->state = $re->mostSpecificSubdivision->name;
+            $location->country = $re->country->name;
+            $location->country_code = $re->country->isoCode;
+        } catch(\Exception $e){}
     }
 
     return $location;
