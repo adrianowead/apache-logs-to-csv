@@ -2,3 +2,4 @@ vendor/
 exported/
 logs/
 GeoLite2-City.mmdb
+.env
