@@ -8,7 +8,8 @@
     },
     "scripts": {
         "post-install-cmd": [
-            "mkdir -p ./logs"
+            "mkdir -p ./logs",
+            "tar -xf GeoLite2-City.mmdb.tar.gz"
         ]
     }
 }
