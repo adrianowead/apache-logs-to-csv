@@ -1,5 +1,6 @@
 vendor/
 exported/
+merged/
 logs/
 GeoLite2-City.mmdb
 .env

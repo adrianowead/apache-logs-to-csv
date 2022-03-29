@@ -356,6 +356,15 @@ function parseLog(string $filePath, string $exportedDir): void
 
     $out = $exportedDir . DIRECTORY_SEPARATOR . $newName;
 
+    // pular se já existir esse arquivo
+    if(file_exists($out)) {
+        $progressBar->start();
+        $progressBar->finish();
+        echo "\n";
+
+        return ;
+    }
+
     $out = fopen($out, 'w+');
 
     $stream = fopen($filePath, 'rb');
@@ -379,14 +388,14 @@ function parseLog(string $filePath, string $exportedDir): void
                 fputcsv(
                     $out,
                     array_keys($line),
-                    ';'
+                    ','
                 );
             }
 
             fputcsv(
                 $out,
                 array_values($line),
-                ';'
+                ','
             );
         }
 
